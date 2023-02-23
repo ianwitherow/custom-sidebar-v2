@@ -311,6 +311,13 @@
           }
         }
 
+        if (config_entry.style) {
+          let currentStyle = cln.getAttribute("style") || "";
+          const semicolon = currentStyle.trim().endsWith(';') ? '' : ';';
+          const newStyle = currentStyle + semicolon + config_entry.style;
+          cln.setAttribute('style', newStyle);
+        }
+
         cln.setAttribute('aria-selected', 'false');
         cln.className = '';
 
@@ -359,6 +366,13 @@
 
         elementToMove.setAttribute('aria-selected', 'false');
         elementToMove.className = '';
+
+        if (config_entry.style) {
+          let currentStyle = elementToMove.getAttribute("style") || "";
+          const semicolon = currentStyle.trim().endsWith(';') ? '' : ';';
+          const newStyle = currentStyle + semicolon + config_entry.style;
+          elementToMove.setAttribute('style', newStyle);
+        }
 
         config_entry.moved = true;
         config_entry.itemElement = elementToMove;
