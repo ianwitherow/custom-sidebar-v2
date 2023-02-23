@@ -303,6 +303,14 @@
           setOrder(cln, config_entry, index);
         }
 
+        if (config_entry.new_item) {
+          // If the cloned item has a configuration badge, remove it.
+          const configBadge = cln.querySelector(".configuration-badge");
+          if (configBadge) {
+            configBadge.remove();
+          }
+        }
+
         cln.setAttribute('aria-selected', 'false');
         cln.className = '';
 
